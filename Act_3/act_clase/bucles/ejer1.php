@@ -1,6 +1,6 @@
 <?php  
     /**
-     *  autor: David Rosas
+     *  @author David Rosas
      *  Enunciado: Escribir los números 1 al 10.
      * 
      * 

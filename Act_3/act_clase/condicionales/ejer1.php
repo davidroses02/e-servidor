@@ -1,6 +1,6 @@
 <?php  
     /**
-     * Autor: David Rosas
+     *  @author David Rosas
      *  Enunciado: Almacena tres números en variables y escribirlos en pantalla de forma ordenada.
      * 
      * 
