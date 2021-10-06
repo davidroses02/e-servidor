@@ -1,31 +1,17 @@
-<?php  
-    /**
-     *  @author David Rosas
-     *  Enunciado: Escribe un programa que genere e imprima un número aleatorio de 4 cifras, mostrando a
-     *   continuación cada una de sus cifras en un color diferente.
-     *   Por ejemplo:
-     *   6792
-     *   2
-     *   9
-     *   7
-     *   6
-     */
+<?php
 
-    $num = strval(random_int(0, 9999));
+/**
+ * Escribe un programa que genere e imprima un número aleatorio de 4 cifras, mostrando a
+* continuación cada una de sus cifras en un color diferente.
+ */
 
-    echo "$num";
+$numero = '12345';
+
+for ($i=0; $i < strlen($numero) ; $i++) { 
+    echo '<p style="color:rgb('.(rand(-250, 250)).','.(rand(-250, 250)).','.(rand(-250, 250)).')">'.$numero[$i].'</td>';
+    echo  '<br>';
     
-    $tamaño = strlen($num);
+}
 
-    $contador = 0;
 
-    for ($i = 1; $i < $tamaño; $i++) {
-        
-        $cifra = intval(substr($num, $contador, $i));
-        
-        $contador++;
-
-        echo "<br>" , "$cifra";
-        
-    }
 ?>
