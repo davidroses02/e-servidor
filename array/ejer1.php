@@ -63,7 +63,7 @@
 
         $frutas = array(
             
-            "Jesus Díaz Rivas" =>
+            "Jesus Díaz Rivas" => 
             "Manuel Brito Guerrero" =>
             "Laura Hidalgo Rivera" =>
             "Tomás Hidalgo Martín" =>
