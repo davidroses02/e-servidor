@@ -2,7 +2,7 @@
     /**Escribe un programa que genere tres números aleatorios correspondientes a la fecha de
    * nacimiento (día, mes, año) de una persona. Debes garantizar que la fecha generada es válida.
     * El script mostrará en pantalla la fecha y una imagen con el signo del zodiaco de la persona.
-    * @author Tomas
+    * @author David Rosas
     */
 
     
