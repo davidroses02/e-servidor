@@ -103,12 +103,52 @@
 
     );
 
+    $primero = random_int(0, 2);
+    $segundo = random_int(0, 4);
+    $postre = random_int(0, 2);
 
+    echo '<table border="2">';
 
-    echo "menu: " , $menu['primeros'][0]["nombre"] , "<br>";
+    // Primeros
 
-    echo '<img src='.$menu['primeros'][0]['foto'].'>' , "<br>";
+    echo "<tr><td>";
+    echo "Primer plato: " , $menu['primeros']["$primero"]["nombre"];
+    echo "</td></tr>";
+    
+    echo "<tr><td>";
+    echo '<img src='.$menu['primeros']["$primero"]['foto']. ' width="300"' . ' height="200"' . '>';
+    echo "</td></tr>";
+    
+    // Segundos
 
+    echo "<tr><td>";
+    echo "Segundo plato: " , $menu['segundos']["$segundo"]["nombre"];
+    echo "</td></tr>";
+
+    echo "<tr><td>";
+    echo '<img src='.$menu['segundos']["$segundo"]['foto']. ' width="300"' . ' height="200"' . '>';
+    echo "</td></tr>";
+
+    // Postre
+
+    echo "<tr><td>";
+    echo "Postre: " , $menu['postres']["$postre"]["nombre"];
+    echo "</td></tr>";
+
+    echo "<tr><td>";
+    echo '<img src='.$menu['postres']["$postre"]['foto']. ' width="300"' . ' height="200"' . '>';
+    echo "</td></tr>";
+
+    // Precio
+
+    $precioTotal = $menu['postres']["$postre"]["Precio"] + $menu['segundos']["$segundo"]["Precio"] + $menu['primeros']["$primero"]["Precio"];
+    $descuento = ( 20 * $precioTotal ) / 100;
+
+    echo "<tr><td>";
+    echo "Precio total: " , $precioTotal - $descuento;
+    echo "</td></tr>";
+
+    echo "</table>";
 
 
 ?>

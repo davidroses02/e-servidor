@@ -9,36 +9,89 @@
 
     $ejercicios = array ( 
 
-        array (
-            "nombre" => "Ejercicio1",
-            "descripcion" => "Crea un calendario",
-            "categoria" => "Bucles" ),
-        array (
-            "nombre" => "Ejercicio2",
-            "descripcion" => "Dime la serie de los primeros 5 números fibonacci",
-            "categoria" => "Bucles" ),
-        array (
-            "nombre" => "Ejercicio3",
-            "descripcion" => "Escribe varios ejemplos de arrays",
-            "categoria" => "Array" ),
-        array (
-            "nombre" => "Ejercicio4",
-            "descripcion" => "Programa el gestesimal en php",
-            "categoria" => "App" ),
-        array (
-            "nombre" => "Ejercicio5",
-            "descripcion" => "Programa una función que diga si un dni es correcto",
-            "categoria" => "Bucles" ),
-        array (
-            "nombre" => "Ejercicio6",
-            "descripcion" => "Crea la aplicación de mensajería perfecta",
-            "categoria" => "App" ),
-        array (
-            "nombre" => "Ejercicio7",
-            "descripcion" => "Crea un portal de música web",
-            "categoria" => "App" )
+        "bucles" => array ( 
+
+            "ruta" => "../Act_3/act_clase/bucles/",
+
+            "ejercicio" => array (
+                array (
+                    "nombre" => "ejer1.php"
+                ),
+                array (
+                    "nombre" => "ejer2.php"
+                ),
+                array (
+                    "nombre" => "ejer3.php"
+                ),
+                array (
+                    "nombre" => "ejer4.php"
+                ),
+                array (
+                    "nombre" => "ejer5.php"
+                )
+
+            )
+        ),
+
+        "array" => array (
+
+            "ruta" => "./",
+
+            "ejercicio" => array (
+                array (
+                    "nombre" => "ejer1.php"
+                ),
+                array (
+                    "nombre" => "ejer2.php"
+                ),
+                array (
+                    "nombre" => "ejer3.php"
+                ),
+                array (
+                    "nombre" => "ejer4.php"
+                ),
+                array (
+                    "nombre" => "ejer5.php"
+                )
+            )
+
+        )
+
     );
 
+    foreach ($ejercicios as $categorias => $segundo_array) {
+        
+        echo "<ol>";
+        echo "<li>$categorias</li><br>";
+        echo "</ol>";
+        
+        echo "<ol>";
+        foreach ($segundo_array as $contenido => $valor) {
+            
+            if ($contenido == "ruta") {
+                $ruta = $valor;
+            };
+            
+            if ($contenido == "ejercicio") {
+                
+                foreach ($valor as $x) {
 
+                    foreach ($x as $nombre => $value) {
+
+                        $ea = "$ruta" . "$value";
+                        echo "<li><a href= '$ea' > '$value' </a></li>";
+
+                    }
+
+                };
+                
+            };
+            
+        };
+
+        echo "</ol>";
+
+    };
 
 ?>
+
