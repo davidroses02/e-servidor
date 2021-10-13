@@ -61,9 +61,9 @@
 
     foreach ($ejercicios as $categorias => $segundo_array) {
         
-        echo "<ol>";
+        echo "<ul>";
         echo "<li>$categorias</li><br>";
-        echo "</ol>";
+        echo "</ul>";
         
         echo "<ol>";
         foreach ($segundo_array as $contenido => $valor) {
@@ -79,7 +79,7 @@
                     foreach ($x as $nombre => $value) {
 
                         $ea = "$ruta" . "$value";
-                        echo "<li><a href= '$ea' > '$value' </a></li>";
+                        echo "<li><a href= '$ea' > $value </a></li>";
 
                     }
 
