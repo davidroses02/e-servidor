@@ -76,7 +76,7 @@
                 "motivo" => "Navidad"
             ),
             array(
-                "dia" => array("1","6"),
+                "intervalo" => array("1","6"),
                 "mes" => "January",
                 "motivo" => "Navidad"
             ),
@@ -106,7 +106,7 @@
             echo "<p style=color:green;>$x</p>";
             echo "</div>";
             echo "</td>";
-            echo "<tr>";
+            //echo "<tr>";
             
         } else {
             if ($x == 7 || $x == 14 || $x == 21 || $x == 28) {
@@ -123,8 +123,18 @@
                 echo "<td>";
                 echo "<p>";
                 // if - else
-                echo festivos($x, $diasFestivos, $mesActual) ;
-                echo "$x";
+                if (festivos($x, $diasFestivos, $mesActual)[0]  == $x) {
+                    $diaFestivo = festivos($x, $diasFestivos, $mesActual)[0];
+                    $color = festivos($x, $diasFestivos, $mesActual)[1];
+                    $diaLeyenda = festivos($x, $diasFestivos, $mesActual)[2];
+                    $mesLeyenda = festivos($x, $diasFestivos, $mesActual)[3];
+                    $motivoLeyenda = festivos($x, $diasFestivos, $mesActual)[4];
+                    echo "<div style=color:$color;><p>$diaFestivo</p></div>";
+                } else {
+                    
+                    echo "$x";
+                }
+                
                 echo "</p>";
                 echo "</td>"; 
 
@@ -132,6 +142,8 @@
         }
     }
     echo "</table>";
+
+    imprimirLeyendaDeFestivos($color, $diaLeyenda, $mesLeyenda, $motivoLeyenda);
 
     imprimirLeyenda();
     
@@ -143,6 +155,11 @@
                     //echo $x["dia"]; -> imprime solo dias 
                     if ($x["mes"] == $mesActual) {
 
+                        if ($x["dia"] == $dia) {
+                            return array($dia, "blue", $x["dia"], $x["mes"], $x["motivo"]);
+
+                        }
+                        
                     }
                 }
             }
@@ -151,7 +168,9 @@
                 foreach ($value as $x) {
                     //echo $x["dia"]; -> imprime solo dias 
                     if ($x["mes"] == $mesActual) {
-
+                        if ($x["dia"] == $dia) {
+                            return array($dia, "green", $x["dia"], $x["mes"], $x["motivo"]);
+                        }
                     }
                 }
             }
@@ -161,7 +180,7 @@
                     //echo $x["dia"]; -> imprime solo dias 
                     if ($x["mes"] == $mesActual) {
                         if ($x["dia"] == $dia) {
-                            echo "<div style=color:orange;><p>$dia</p></div>";
+                            return array($dia, "orange", $x["dia"], $x["mes"], $x["motivo"]);
                         }
                     }
                 }
@@ -176,6 +195,11 @@
         echo "</td></tr><br>";
     }
     
+    function imprimirLeyendaDeFestivos($color, $diaLeyenda, $mesLeyenda, $motivoLeyenda) {
+        echo "<br><div style=color:$color; > $diaLeyenda "."  de  "." $mesLeyenda "."  -  "." $motivoLeyenda</div>";
+
+    }
+
     function imprimirLeyenda () {
         echo "<br><div style=color:blue; >Festivo a nivel local</div>";
         echo "<div style=color:green; >Festivo a nivel provincial</div>";
