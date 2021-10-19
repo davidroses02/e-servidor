@@ -21,7 +21,7 @@
     $nameErr = $emailErr = $genderErr = $commentErr = $websiteErr = $idiomaErr = $nivelIdiomaErr = $multipleErr = ""; 
 
     // Para genero trabajaremos con un array
-    $aGenero = array("femenino","masculino","otro")
+    $aGenero = array("femenino","masculino","otro");
     // error genero
     $genderErr = "";
     
@@ -42,7 +42,7 @@
 
     imprimirFormulario();
 
-    imprimirFormulario() {
+    function imprimirFormulario() {
         echo "<form>";
         
         // input nombre

@@ -14,6 +14,9 @@
     $añoSistema = intval(substr($fechaSistema, 0 , 4));
     $diaSistema = intval(substr($fechaSistema, 8 , 9));
 
+    $diaInicialMes = date('w',mktime(0,0,0,10,1,$añoSistema));
+    $diaInicialMes = ($diaInicialMes > 0) ? $diaInicialMes-1 : $diaInicialMes;
+
     $meses = array (
         "January" => 31,
         "February"  => diaFebrero($añoSistema),
@@ -95,10 +98,19 @@
     
     imprimirMes($mesActual);
 
+    $primerDomingo = 7 - $diaInicialMes; 
+    echo $primerDomingo;
     echo "<table>";
-    for ($x = 1; $x <= $meses[$mesActual]; $x++) {
+    for ($x = 0; $x <= $meses[$mesActual]; $x++) {
         
-        
+        for ($i=0; $i < $primerDomingo; $i++) { 
+            echo "<td>";
+            echo "<div>";
+            echo " ";
+            echo "</div>";
+            echo "</td>";
+        }
+
         if ($x == $diaSistema) {
             
             echo "<td>";
