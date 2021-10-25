@@ -96,32 +96,35 @@
         )
     );
     
+    formulario($meses);
+    echo "<br>";
     imprimirMes($mesActual);
 
     $primerDomingo = 7 - $diaInicialMes; 
-    echo $primerDomingo;
+
     echo "<table>";
+    
+    for ($i=0; $i < $primerDomingo; $i++) { 
+        echo "<td>";
+        echo "<div>";
+        echo "<p> </p>";
+        echo "</div>";
+        echo "</td>";
+    }
+    
     for ($x = 0; $x <= $meses[$mesActual]; $x++) {
-        
-        for ($i=0; $i < $primerDomingo; $i++) { 
-            echo "<td>";
-            echo "<div>";
-            echo " ";
-            echo "</div>";
-            echo "</td>";
-        }
 
         if ($x == $diaSistema) {
             
             echo "<td>";
-            echo "<div>"; //style=color:red;
+            echo "<div>";
             echo "<p style=color:green;>$x</p>";
             echo "</div>";
             echo "</td>";
             //echo "<tr>";
             
         } else {
-            if ($x == 7 || $x == 14 || $x == 21 || $x == 28) {
+            if ($x == $primerDomingo) {
                 
                 echo "<td>";
                 echo "<div>";
@@ -129,13 +132,14 @@
                 echo "</div>";
                 echo "</td>";
                 echo "<tr>";
-                
+                $primerDomingo+=7;
+
             } else {
                 
                 echo "<td>";
                 echo "<p>";
-                // if - else
-                if (festivos($x, $diasFestivos, $mesActual)[0]  == $x) {
+                
+                if (festivos($x, $diasFestivos, $mesActual)[0] == $x) {
                     $diaFestivo = festivos($x, $diasFestivos, $mesActual)[0];
                     $color = festivos($x, $diasFestivos, $mesActual)[1];
                     $diaLeyenda = festivos($x, $diasFestivos, $mesActual)[2];
@@ -152,6 +156,7 @@
 
             }
         }
+        
     }
     echo "</table>";
 
@@ -199,6 +204,38 @@
             }
 
         }
+    }
+
+    function enlaceDias($i) {
+
+    }
+    
+    function formulario($meses) {
+        echo '<form method="post" action="ejer5.php">';
+        echo "Mes: ";
+        echo '<select> name="meses"';
+        foreach ($meses as $key => $value) {
+            echo "<option>$key</option>";
+        }
+        echo "</select>";
+        echo "  Años: ";
+        echo ' <select name="Meses"> 
+            <option value="1">2021</option> 
+            <option value="2">2020</option> 
+            <option value="3">2019</option>
+            <option value="4">2018</option> 
+            <option value="5">2017</option> 
+            <option value="6">2016</option>
+            <option value="7">2015</option> 
+            <option value="8">2014</option> 
+            <option value="9">2013</option>
+            <option value="10">2012</option> 
+            <option value="11">2011</option> 
+            <option value="12">2010</option>
+        </select>';
+        echo '  <input type="submit" name="submit" value="Submit"><br/>';
+        echo "</form>";
+        echo $_POST[0];
     }
 
     function imprimirMes ($mesActual) {
