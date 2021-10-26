@@ -147,7 +147,7 @@
                     $motivoLeyenda = festivos($x, $diasFestivos, $mesActual)[4];
                     echo "<div style=color:$color;><p>$diaFestivo</p></div>";
                 } else {
-                    
+                    //echo "<a href="sel_fecha.php?dia=$x&mes=$mesActual&año=$añoSistema ">$x";
                     echo "$x";
                 }
                 
@@ -235,7 +235,7 @@
         </select>';
         echo '  <input type="submit" name="submit" value="Submit"><br/>';
         echo "</form>";
-        echo $_POST[0];
+        //echo $_POST[0];
     }
 
     function imprimirMes ($mesActual) {
