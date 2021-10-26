@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejer2</title>
+</head>
+<body>
+    <form method="post" action="ejer2.php">  
+        
+        <h1>Formulario html</h1>
+
+        Nombre:<input type="text" name="nombre" value=""><br>
+        Apellidos:<input type="text" name="apellidos" value=""><br>
+        Nacionalidad:<input type="text" name="nacionalidad" value=""><br>
+        Provincia:<input type="text" name="provincia" value=""><br>
+        Localidad:<input type="text" name="localidad" value=""><br>
+        Telefono:<input type="text" name="telefono" value=""><br>
+        Correo:<input type="text" name="correo" value=""><br>
+              
+        Aficiones/Hobbies:<br/>  
+        <textarea name="aficiones" rows="5" cols="40"></textarea><br/>
+      
+        Idiomas:<br>
+        <select multiple name="idiomas[]" >
+            <option value="Castellano">Castellano</option>
+            <option value="Alemán">Alemán</option>
+            <option value="Italiano">Italiano</option>
+            <option value="Francés">Francés</option>
+            <option value="Portugués">Portugués</option>
+        </select><br>
+         
+        Género:<br>
+        <div>
+            <input type="radio" 
+            name="gender" value="femenino">
+            <label>femenino</label>
+            
+            <input type="radio"
+            name="gender" value="masculino">
+            <label>masculino</label>
+            
+            <input type="radio"
+            name="gender" value="otro">
+            <label>otro</label>
+        </div><br>
+
+        
+        <input type="submit" name="submit" value="Enviar"><br/>
+        <button type="reset">Reset</button><br/><br/>
+        <input type="image" name="botondeenvio" src="img/1.jpg" alt="Enviar formulario">
+  </form>
+</body>
+</html>
