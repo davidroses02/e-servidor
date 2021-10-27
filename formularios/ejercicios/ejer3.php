@@ -8,38 +8,53 @@
  * 
  */
 
-    // array indexado-asociativo
-    // formulario desde ¿¿html??
-    // Hacer form con 5 paises, nada más
-    // filtramos por el nombre del pais.
-    
     $array = array(
         array(
-            "nombre" => "España",
             "capital" => "Madrid",
-            "ruta" => ""
+            "ruta" => "./img/españa.jpg",
+            "nombre" => "España"
         ),
         array(
-            "nombre" => "Grecia",
             "capital" => "Atenas",
-            "ruta" => ""
+            "ruta" => "./img/grecia.png",
+            "nombre" => "Grecia"
         ),
         array(
-            "nombre" => "Portugal",
             "capital" => "Lisboa",
-            "ruta" => ""
+            "ruta" => "./img/portugal.png",
+            "nombre" => "Portugal"
         ),
         array(
-            "nombre" => "Canadá",
             "capital" => "Ottawa",
-            "ruta" => ""
+            "ruta" => "./img/canada.jpg",
+            "nombre" => "Canadá"
         ),
         array(
-            "nombre" => "Alemania",
             "capital" => "Berlín",
-            "ruta" => ""
+            "ruta" => "./img/alemania.jpg",
+            "nombre" => "Alemania"
         )
     );
 
+    foreach ($array as $paises) {
+        
+        foreach ($paises as $key => $value) {
+            
+            if ($key == "capital") {
+                $capital = $value;
+            }
+            
+            if ($key == "ruta") {
+                $ruta = $value;
+            }
 
+            if ($value == $_POST['pais']) {
+                echo $value  . "<br>";
+                echo $capital . "<br>";
+                echo "<img src=" . $ruta . ">"; 
+            }
+            
+        }
+    }
+    
 ?>
