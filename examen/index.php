@@ -1,47 +1,42 @@
 <?php 
 
 /**
- * @author David Rosas [$_POST["test"]-1]
+ * @author David Rosas 
  */
 
     include("./config/tests_cnf.php");
     $testElegido = $_POST["test"]-1;
-
-    foreach ($aTests as $arr) {
-        
-        foreach ($arr as $categorias => $valores) {
-
-            if ($valores == $_POST["test"]) {
-                    
-                echo "<h1>Bienvenido al examen téorico</h1><br>";
-                echo "Test número: " . $valores . "<br>";
-
-                $i = 1;
-                foreach ($preguntas as $arr[$testElegido] => $arrIndex) {
-                    foreach ($arrIndex as $key => $value) {
-                        
-                        if ($key == "Pregunta") {
-                            echo "$value" . "<br>";
-                        }
-
-                        if ($key == "respuestas") {
-                            echo "<img src=" . "./" ."dir_img_test" . $_POST["test"] . "/" . "img" . $i++ . ".jpg" .">"; 
-                            echo "<form>";
-                            foreach ($value as $key => $respuestas) {
-                                echo "<input type=\"radio\" name=\"respuesta\" value = \"$respuestas\" >$respuestas";
-                            };
-                            echo "</form>";
-                        }
-                        
-                    }
+   
+    echo "<h1>Examen tipo test</h1>"  . "<br>";
+    echo "Test número: " . $aTests[$testElegido]["idTest"] . "<br>";
+    echo "Permiso: " . $aTests[$testElegido]["Permiso"] . "<br>";
+    echo "Categoría: " . $aTests[$testElegido]["Categoria"] . "<br>";
+    
+    foreach ($aTests[$testElegido] as $clave => $valor) {
+     
+        $i = 1;
+        $x = 0;
+        if ( $clave == "Preguntas") {
+            foreach ($valor as $x => $respuestas) {
+                echo $respuestas["Pregunta"] . "<br>";
+                echo "<img src=" . "./" ."dir_img_test" . $_POST["test"] . "/" . "img" . $i++ . ".jpg" .">" . "<br>"; 
+                echo "<form method=\"post\" action=\"procesaRespuesta.php\">";
+                
+                $id = $respuestas["idPregunta"];
+                foreach ($respuestas["respuestas"] as $key => $value) {
+                    echo "<input type=\"radio\" name=\"$id\" value = \"$value\" >$value";
                 }
                 
-                    
-            }
-
+                echo "<br>";
+            };
+            echo "<br>";
+            echo '  <input type="submit" name="submit" value="Submit"><br/>';
+            echo '<input type="submit" name="testElegido" value="$testElegido" />';
+            echo "<button type=\"reset\">Reset</button><br/>";
+            echo "</form>";
         }
-
-  
-  }
+        
+    }
+    
 
 ?>
