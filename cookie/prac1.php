@@ -8,24 +8,14 @@ function test_input($data){
     $data = htmlspecialchars($data);
     return $data;
 }
-/** 
- * 
- if (isset($_COOKIE['contador'])) {
-     setcookie('contador', $_COOKIE['contador']+1, time()+36000 );
-    } 
-    else {
-        setcookie('contador',1,time()+36000 );
-    }
-    echo $_COOKIE['contador'];
-    */
-    
-    
+
     // Creamos variables
     $usuario = "";
     $contraseña = "";
     // Variables de error
     $errUsuario = "";
     $errContraseña = "";
+
     if (isset($_COOKIE['usuario'])) {
         $usuario = $_COOKIE['usuario'];
         $contraseña = $_COOKIE['contraseña'];
@@ -38,7 +28,7 @@ function test_input($data){
 $lprocesaFormulario = false;
 $lerror = false;
 
-if ($_SERVER["REQUEST_METHOD"]=="POST"){
+if ($_SERVER["REQUEST_METHOD"] == "POST"){
     $lprocesaFormulario = true;
 
     if (empty($_POST["usuario"])) {
