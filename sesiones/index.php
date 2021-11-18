@@ -1,5 +1,7 @@
 <?php
+
 session_start();
+
 if(!isset($_SESSION['agenda'])){
     $_SESSION['agenda'] = array();
     $_SESSION['visitas'] = 0;
