@@ -3,7 +3,6 @@
 /**
  * Cierra la sesión actual.
  * 
- * @author Javier Fernández Rubio
  */
 
 session_start(); // recoge la sesión del otro archivo

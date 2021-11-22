@@ -3,7 +3,6 @@
 /**
  * Pagina publica de la sesion de validacion simple
  * 
- * @author Javier Fernández Rubio
  */
 
 session_start();

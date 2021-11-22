@@ -1,17 +1,11 @@
 <?php
 
-/**
- * @author Javer Fernandez Rubio
- */
-
 session_start();
 
 if (!$_SESSION['auth']){
     header('Location: login.php');
     exit();
 }
-
-
 
 ?>
 

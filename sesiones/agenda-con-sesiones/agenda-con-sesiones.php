@@ -4,7 +4,6 @@
  * Agenda con sesiones
  * Ejerccio con sesiones
  * 
- * @author Javier Fernández Rubio 
  */
 
 session_start();
