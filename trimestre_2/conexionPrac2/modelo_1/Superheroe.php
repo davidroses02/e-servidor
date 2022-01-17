@@ -33,17 +33,16 @@ class Superheroe extends DBAbstractModel
     {
         $this->capacidades = $capacidades;
     }
-    public function setid($id)
-    {
-        $this->capacidades = $id;
-    }
 
-    public function set()
+    public function set($user_data = array())
     {
+        foreach ($user_data as $campo => $valor) {
+            $$campo = $valor;
+        }
         $this->query = "INSERT INTO superheroes(nombre, capacidades)
                         VALUES(:nombre, :capacidades)";
-        $this->parametros['nombre'] = $this->nombre;
-        $this->parametros['capacidades'] = $this->capacidades;
+        $this->parametros['nombre'] = $nombre;
+        $this->parametros['capacidades'] = $capacidades;
         $this->get_results_from_query();
         $this->mensaje = 'SH agregado correctamente';
     }
@@ -76,29 +75,21 @@ class Superheroe extends DBAbstractModel
         }
         return $this->rows;
     }
-
-    # filtro de búsqueda
-    public function getByFilter($patronbusqueda = "") {
-        $this->query = "
-        select * from superheroes where nombre like :patronbusqueda
-                ";
-        $this->parametros['patronbusqueda'] = $patronbusqueda;
-        $this->get_results_from_query();   
-        return $this->rows;
-        
-    }
     # Modificar libro
-    public function edit()
+    public function edit($user_data = array())
     {
+        foreach ($user_data as $campo => $valor) {
+            $$campo = $valor;
+        }
         $this->query = "
                 UPDATE superheroes
                 SET nombre=:nombre,
                 capacidades=:capacidades
                 WHERE id = :id
                 ";
-        $this->parametros['id']= $this->id;
-        $this->parametros['nombre'] = $this->nombre;
-        $this->parametros['capacidades'] = $this->capacidades;
+        // $this->parametros['id']=$id;
+        $this->parametros['nombre'] = $nombre;
+        $this->parametros['capacidades'] = $capacidades;
         $this->get_results_from_query();
         $this->mensaje = 'sh modificado';
     }
