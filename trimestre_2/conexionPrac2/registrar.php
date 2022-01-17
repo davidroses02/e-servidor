@@ -19,23 +19,23 @@
 
 <?php
 
-    /*MODIFICAR TODO*/ 
+    include("constantes.php");
+    include("Superheroe.php");
 
-    include("conectaSuperheroes.php");
-
-    $db = conectaDB();
-    $nombre = "";
-    $capacidad = "";
+    $sh = Superheroe::getInstancia();
     
     if ($_SERVER["REQUEST_METHOD"]=="POST"){
+
         if (isset($_POST["nombre"])) {
-            $nombre = $_POST["nombre"];
+            $sh->setNombre($_POST["nombre"]);
         }
+
         if (isset($_POST["capacidades"])) {
-            $capacidad = $_POST["capacidades"];
+            $sh->setCapacidades($_POST["capacidades"]);
         }
-        $sql1 = "insert into superheroes(nombre, capacidades) values ('".$nombre."' , '".$capacidad."')";
-        $db->query($sql1);
+        
+        $sh->set();
+        
     }
 
     echo "<a href=".'index.php'.">Volver</a>";

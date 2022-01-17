@@ -29,13 +29,13 @@ class Superheroe extends DBAbstractModel
     {
         $this->nombre = $nombre;
     }
-    public function setcapacidades($capacidades)
+    public function setCapacidades($capacidades)
     {
         $this->capacidades = $capacidades;
     }
-    public function setid($id)
+    public function setId($id)
     {
-        $this->capacidades = $id;
+        $this->id = $id;
     }
 
     public function set()
@@ -100,9 +100,8 @@ class Superheroe extends DBAbstractModel
         $this->parametros['nombre'] = $this->nombre;
         $this->parametros['capacidades'] = $this->capacidades;
         $this->get_results_from_query();
-        $this->mensaje = 'sh modificado';
+        $this->mensaje = 'Éxito en la operación.';
     }
-    # El
 
     # Eliminar un usuario
     public function delete($id = '')

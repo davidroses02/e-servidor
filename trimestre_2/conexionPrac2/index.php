@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
     
     foreach ($array as $valor) {
         if (isset($array)) {
-            $id = $valor["nombre"];
+            $id = $valor["id"];
             echo "El nombre es: " . $valor["nombre"]. " " . "|" . " <a href='delete.php?id=$id'>delete</a>" . " | " . "<a href='update.php?id=$id'>update</a>" ."<br>";
         } else {
             echo "No hay campos";

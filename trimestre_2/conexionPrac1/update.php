@@ -52,7 +52,7 @@
             <input type="submit" name="submit" value="Submit"><br/><br/>
         </form>
     </body>
-    </html>
+</html>
     
 <?php 
 
