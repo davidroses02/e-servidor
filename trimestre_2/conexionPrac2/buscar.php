@@ -21,7 +21,17 @@
 
 include("constantes.php");
 include("Superheroe.php");
+$bandera = false;
 
+session_start();
+
+$aut = $_SESSION['aut'];
+
+foreach ($aut as $key) {
+    if ($key['perfil'] == "administrador") {
+        $bandera = true;
+    }
+}
 
 if ($_SERVER["REQUEST_METHOD"]=="POST"){
     if (isset($_POST["nombre"])) {
@@ -36,11 +46,17 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
     foreach ($array as $valor) {
         if (isset($array)) {
             $id = $valor["id"];
-            echo "El nombre es: " . $valor["nombre"]. " " . "|" . " <a href='delete.php?id=$id'>delete</a>" . " | " . "<a href='update.php?id=$id'>update</a>" ."<br>";
+            if ($bandera) {
+                echo "El nombre es: " . $valor["nombre"]. " " . "|" . " <a href='delete.php?id=$id'>delete</a>" . " | " . "<a href='update.php?id=$id'>update</a>" ."<br>" ."<br>";
+            } else {
+                echo "El nombre es: " . $valor["nombre"] ."<br>";
+            }
         } else {
             echo "No hay campos";
         }
     }
 }
+
+echo "<a href=".'index.php'.">Volver</a>";
 
 ?>

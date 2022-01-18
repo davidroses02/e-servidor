@@ -3,11 +3,13 @@
 
 include("constantes.php");
 include("Usuarios.php");
+session_start();
+
 
 if ($_SERVER["REQUEST_METHOD"]=="POST"){
     
     $nombre = "";
-    $contraseña = "";
+    $contrasena = "";
     
     $us = Usuarios::getInstancia();
     
@@ -15,13 +17,18 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
         $nombre = $_POST["nombre"];
     }
     
-    if (isset($_POST["contraseña"])) {
-        $contraseña = $_POST["contraseña"];
+    if (isset($_POST["contrasena"])) {
+        $contrasena = $_POST["contrasena"];
     }
     
-    $user = $us->login($nombre, $contraseña);
+    $user = $us->login($nombre, $contrasena);
 
-    
+    foreach ($user as $key) {
+        if ($key['nombre'] == $nombre && $key['contrasena'] == $contrasena) {
+            $_SESSION['aut'] = $user;
+            header("Location:buscar.php");
+        }
+    }
     
 }
 
@@ -39,9 +46,9 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
 <body>
     <h1>Login</h1>
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-    <p> <label> nombre: <input type="text" name="nombre" value="nombre"></p><br>
-    <p> <label> contraseña: <input type="text" name="contraseña" value="contraseña"> </p><br>
-    <input type="submit" value="Entrar"><br>
+    <p> <label> nombre: <input type="text" name="nombre" value="nombre"></p>
+    <p> <label> contrasena: <input type="text" name="contrasena" value="contrasena"> </p>
+    <input type="submit" value="Entrar">
     </form>
 </body>
 </html>

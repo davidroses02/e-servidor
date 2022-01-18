@@ -20,7 +20,7 @@ class Usuarios extends DBAbstractModel {
 
     private $id;
     private $nombre;
-    private $contraseña;
+    private $contrasena;
     private $perfil;
 
     public function setId($id)
@@ -33,9 +33,9 @@ class Usuarios extends DBAbstractModel {
         $this->nombre = $nombre;
     }
 
-    public function setContraseña($contraseña)
+    public function setcontrasena($contrasena)
     {
-        $this->contraseña = $contraseña;
+        $this->contrasena = $contrasena;
     }
 
     public function setPerfil($perfil)
@@ -77,18 +77,18 @@ class Usuarios extends DBAbstractModel {
 
     }
 
-    // crear método login -> le paso usuario y contraseña
+    // crear método login -> le paso usuario y contrasena
     // devuelve un array con el registro que coincide con la query
-    // select * from usuarios where nombre = :nombre and contraseña = :contraseña,
+    // select * from usuarios where nombre = :nombre and contrasena = :contrasena,
 
-    public function login($nombre = "", $contraseña = "") {
+    public function login($nombre = "", $contrasena = "") {
         $this->query = "
         SELECT *
         FROM usuarios
-        WHERE nombre = :nombre and 
-        contraseña = :contraseña";
-        $this->parametros['nombre'] = $this->nombre;
-        $this->parametros['contraseña'] = $this->contraseña;
+        WHERE nombre=:nombre AND 
+        contrasena=:contrasena";
+        $this->parametros['nombre'] = $nombre;
+        $this->parametros['contrasena'] = $contrasena;
         $this->get_results_from_query();
         return $this->rows;
     }
