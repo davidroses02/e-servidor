@@ -20,4 +20,6 @@ $id = $_GET["id"];
 $sh = Superheroe::getInstancia();
 $sh->delete($id);
 
+echo "<a href='buscar.php'>Volver</a>"
+
 ?>

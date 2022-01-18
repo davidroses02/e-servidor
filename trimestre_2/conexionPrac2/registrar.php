@@ -38,6 +38,6 @@
         
     }
 
-    echo "<a href=".'index.php'.">Volver</a>";
+    echo "<a href=".'buscar.php'.">Volver</a>";
     
 ?>

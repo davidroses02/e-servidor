@@ -49,4 +49,6 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
     
 }
 
+echo "<a href='buscar.php'>Volver</a>"
+
 ?>
